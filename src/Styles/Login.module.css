@@ -1,0 +1,13 @@
+.contianer {
+  width: 75%;
+  height: 50%;
+  background-color: teal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.contianer p {
+  margin: 0.5rem 0;
+}
