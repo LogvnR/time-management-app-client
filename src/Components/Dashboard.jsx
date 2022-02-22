@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 
 import classes from '../Styles/Dashboard.module.css';
+import Navbar from './UI/Navbar';
+import UserTime from './UserTime';
 
 const Dashboard = (props) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -13,26 +15,36 @@ const Dashboard = (props) => {
   }, []);
 
   return (
-    <div>
-      <p>Welcome Back {props.userEmail}</p>
-      <button onClick={props.logoutHandler}>logout</button>
-      <button onClick={props.checkUser}>Check User</button>
-      <button
-        onClick={() => {
-          console.log(user);
-        }}
-      >
-        Log User
-      </button>
-      {!isLoading && (
-        <>
-          <h1>
-            Name: {user?.firstName} {user?.lastName}
-          </h1>
-          <p>Congregation: {user?.congregation}</p>
-          <p>Time for Jan: {user?.time[0]?.hours}</p>
-        </>
-      )}
+    <div className={classes.background}>
+      <div className={classes.dashboard}>
+        <Navbar congregation={user?.congregation} />
+
+        <div className={classes.content}>
+          <div className={classes['test-bracket']}>
+            <button onClick={props.logoutHandler}>logout</button>
+            <button onClick={props.checkUser}>Check User</button>
+            <button
+              onClick={() => {
+                console.log(user);
+                console.log(props.userEmail);
+              }}
+            >
+              Log User
+            </button>
+          </div>
+          {!isLoading && (
+            <>
+              <p className={classes.welcome}>
+                Welcome back, {user?.firstName}!
+              </p>
+              <UserTime userTime={user?.time} />
+            </>
+          )}
+        </div>
+        <button className={classes['submit-report']}>
+          Submit Service Report +
+        </button>
+      </div>
     </div>
   );
 };

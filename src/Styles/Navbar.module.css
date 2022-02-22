@@ -1,0 +1,14 @@
+.navbar {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.9em 1.3em;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text);
+  font-size: var(--fontSm);
+}
+
+.navbar p {
+  font-size: inherit;
+  margin: 0;
+}

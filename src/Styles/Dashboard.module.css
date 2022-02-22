@@ -1,0 +1,48 @@
+.background {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--mainBg);
+}
+
+.dashboard {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.test-bracket {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.test-bracket button {
+  font-size: 10px;
+}
+
+.welcome {
+  font-size: var(--fontMd);
+  color: var(--text);
+  margin: 1.3em 1.1em;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+}
+
+.submit-report {
+  width: var(--contentWidth);
+  margin: 1.5em 0;
+  padding: 0.7em 0;
+  border: none;
+  font-size: var(--fontMd);
+  background-color: var(--accent);
+  color: var(--text);
+}
