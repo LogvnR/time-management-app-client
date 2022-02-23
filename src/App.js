@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { db, auth } from './Helpers/firebase';
-import axios from './Helpers/axios';
+import { auth } from './Helpers/firebase';
+import mainApi from './Helpers/axios';
+import useUsers from './Helpers/swr';
 
 import {
   createUserWithEmailAndPassword,
@@ -28,7 +29,7 @@ const App = () => {
 
   // User Data State ====
   const [currUser, setCurrUser] = useState('');
-
+  const { users, isLoading, isError } = useUsers();
   const [userData, setUserData] = useState({});
 
   onAuthStateChanged(auth, (currentUser) => {
@@ -56,7 +57,7 @@ const App = () => {
         signUpPassword
       );
       console.log(user);
-      axios.post('createUser', {
+      mainApi.post('createUser', {
         firstName: firstName,
         lastName: lastName,
         email: signUpEmail,
@@ -88,17 +89,17 @@ const App = () => {
   };
 
   useEffect(() => {
-    const getUserData = async () => {
-      const res = await axios.get('getUsers');
-      const specUser = res.data.find(({ email }) => email === currUser.email);
+    const getUserData = () => {
+      const specUser = users.find(({ email }) => email === currUser.email);
       console.log(currUser.email);
+      console.log(users);
       console.log(specUser);
       setUserData(specUser);
     };
     setTimeout(() => {
       getUserData();
-    }, 50);
-  }, [currUser]);
+    }, 100);
+  }, [currUser, users]);
 
   return (
     <Routes>

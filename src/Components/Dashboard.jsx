@@ -8,6 +8,10 @@ const Dashboard = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const user = props.userData;
 
+  const reFocus = () => {
+    document.querySelector('body').focus();
+  };
+
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -23,14 +27,7 @@ const Dashboard = (props) => {
           <div className={classes['test-bracket']}>
             <button onClick={props.logoutHandler}>logout</button>
             <button onClick={props.checkUser}>Check User</button>
-            <button
-              onClick={() => {
-                console.log(user);
-                console.log(props.userEmail);
-              }}
-            >
-              Log User
-            </button>
+            <button onClick={reFocus}>ReFocus</button>
           </div>
           {!isLoading && (
             <>
