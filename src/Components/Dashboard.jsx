@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate, Route } from 'react-router-dom';
 
 import classes from '../Styles/Dashboard.module.css';
 import Navbar from './UI/Navbar';
@@ -8,9 +9,7 @@ const Dashboard = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const user = props.userData;
 
-  const reFocus = () => {
-    document.querySelector('body').focus();
-  };
+  const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => {
@@ -27,7 +26,6 @@ const Dashboard = (props) => {
           <div className={classes['test-bracket']}>
             <button onClick={props.logoutHandler}>logout</button>
             <button onClick={props.checkUser}>Check User</button>
-            <button onClick={reFocus}>ReFocus</button>
           </div>
           {!isLoading && (
             <>
@@ -38,7 +36,12 @@ const Dashboard = (props) => {
             </>
           )}
         </div>
-        <button className={classes['submit-report']}>
+        <button
+          onClick={() => {
+            navigate('/group');
+          }}
+          className={classes['submit-report']}
+        >
           Submit Service Report +
         </button>
       </div>

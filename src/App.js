@@ -15,6 +15,16 @@ import './App.css';
 import Entry from './Components/Entry';
 import Dashboard from './Components/Dashboard';
 
+// Form Components
+import ServiceReport from './Components/ServiceReport';
+import Group from './Components/Report/Group';
+import UserMonth from './Components/Report/UserMonth';
+import Placements from './Components/Report/Placements';
+import Videos from './Components/Report/Videos';
+import Hours from './Components/Report/Hours';
+import Returns from './Components/Report/Returns';
+import Studies from './Components/Report/Studies';
+
 const App = () => {
   // Login State ====
   const [loginEmail, setLoginEmail] = useState('');
@@ -132,6 +142,14 @@ const App = () => {
           />
         }
       />
+      <Route path="/serviceReport" element={<ServiceReport />} />
+      <Route path="/group" element={<Group />} />
+      <Route path="/month" element={<UserMonth />} />
+      <Route path="/placements" element={<Placements />} />
+      <Route path="/videos" element={<Videos />} />
+      <Route path="/hours" element={<Hours />} />
+      <Route path="/returns" element={<Returns />} />
+      <Route path="/studies" element={<Studies />} />
     </Routes>
   );
 };
