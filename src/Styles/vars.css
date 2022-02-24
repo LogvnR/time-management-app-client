@@ -1,9 +1,9 @@
 :root {
-  --mainBg: hsl(215, 50%, 9%);
+  --mainBg: hsl(4, 74%, 10%);
   --text: hsl(30, 100%, 99%);
   --text2: hsl(0, 9%, 2%);
-  --accent: hsl(12, 58%, 41%);
-  --subAccent: hsl(14, 47%, 18%);
+  --accent: hsl(4, 72%, 28%);
+  --subAccent: hsl(12, 58%, 41%);
   --fontSm: clamp(12px, 3.9vw, 18px);
   --fontMd: clamp(16px, 5vw, 22px);
   --contentWidth: clamp(150px, 75%, 350px);

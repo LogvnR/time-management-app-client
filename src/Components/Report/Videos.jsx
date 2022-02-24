@@ -8,9 +8,17 @@ const Videos = () => {
   const navigate = useNavigate();
   return (
     <FormPage>
+      <p>Videos</p>
       <button
         onClick={() => {
-          navigate('/dashboard');
+          navigate('/hours');
+        }}
+      >
+        Next
+      </button>
+      <button
+        onClick={() => {
+          navigate('/placements');
         }}
       >
         Go Back

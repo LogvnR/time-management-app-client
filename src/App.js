@@ -42,6 +42,9 @@ const App = () => {
   const { users, isLoading, isError } = useUsers();
   const [userData, setUserData] = useState({});
 
+  // User Form States
+  const [group, setGroup] = useState('');
+
   onAuthStateChanged(auth, (currentUser) => {
     setCurrUser(currentUser);
   });
@@ -53,7 +56,7 @@ const App = () => {
   };
 
   const testUser = () => {
-    console.log(firstName);
+    console.log(group);
     console.log(lastName);
     console.log(signUpEmail);
     console.log(congregation);
@@ -143,7 +146,10 @@ const App = () => {
         }
       />
       <Route path="/serviceReport" element={<ServiceReport />} />
-      <Route path="/group" element={<Group />} />
+      <Route
+        path="/group"
+        element={<Group group={group} setGroup={setGroup} />}
+      />
       <Route path="/month" element={<UserMonth />} />
       <Route path="/placements" element={<Placements />} />
       <Route path="/videos" element={<Videos />} />

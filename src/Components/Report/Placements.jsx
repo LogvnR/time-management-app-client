@@ -8,9 +8,17 @@ const Placements = () => {
   const navigate = useNavigate();
   return (
     <FormPage>
+      <p>Placements</p>
       <button
         onClick={() => {
-          navigate('/dashboard');
+          navigate('/videos');
+        }}
+      >
+        Next
+      </button>
+      <button
+        onClick={() => {
+          navigate('/month');
         }}
       >
         Go Back

@@ -3,6 +3,22 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   background-color: var(--mainBg);
+}
+
+.content {
+  width: 75%;
+  display: grid;
+  grid-template-rows: 0.5fr 4fr;
+  justify-content: center;
+  justify-items: center;
+}
+
+.title {
+  color: var(--subAccent);
+  font-size: var(--fontMd);
+  font-variant: small-caps;
+  margin: 0.5em 0;
 }

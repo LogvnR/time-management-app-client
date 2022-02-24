@@ -8,9 +8,17 @@ const Hours = () => {
   const navigate = useNavigate();
   return (
     <FormPage>
+      <p>Hours</p>
       <button
         onClick={() => {
-          navigate('/dashboard');
+          navigate('/returns');
+        }}
+      >
+        Next
+      </button>
+      <button
+        onClick={() => {
+          navigate('/hours');
         }}
       >
         Go Back

@@ -8,9 +8,17 @@ const UserMonth = () => {
   const navigate = useNavigate();
   return (
     <FormPage>
+      <p>Month</p>
       <button
         onClick={() => {
-          navigate('/dashboard');
+          navigate('/placements');
+        }}
+      >
+        Next
+      </button>
+      <button
+        onClick={() => {
+          navigate('/group');
         }}
       >
         Go Back

@@ -1,0 +1,14 @@
+.button {
+  color: var(--text);
+  font-size: var(--fontMd);
+  font-variant: small-caps;
+  font-weight: 400;
+  border: none;
+  background-color: transparent;
+  padding: 0.5em 1em;
+}
+
+.arrow {
+  font-size: var(--fontSm);
+  margin-right: 0.4em;
+}

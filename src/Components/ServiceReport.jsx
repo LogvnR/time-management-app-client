@@ -11,7 +11,7 @@ const ServiceReport = () => {
       <p>Total Form</p>
       <button
         onClick={() => {
-          navigate('/dashboard');
+          navigate('/studies');
         }}
       >
         Go Back

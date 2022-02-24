@@ -8,9 +8,17 @@ const Studies = () => {
   const navigate = useNavigate();
   return (
     <FormPage>
+      <p>Studies</p>
       <button
         onClick={() => {
-          navigate('/dashboard');
+          navigate('/serviceReport');
+        }}
+      >
+        Next
+      </button>
+      <button
+        onClick={() => {
+          navigate('/returns');
         }}
       >
         Go Back
