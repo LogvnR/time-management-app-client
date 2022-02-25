@@ -1,0 +1,43 @@
+.container {
+  width: 100%;
+  font-size: var(--fontSm);
+}
+
+.question {
+  font-size: var(--fontSm);
+  font-variant: small-caps;
+  margin: 0.7em 0 1.8em;
+  text-align: center;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.content select {
+  width: 80%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--subAccent);
+  font-family: var(--font);
+  font-size: var(--fontLg);
+  color: var(--text);
+  outline: none;
+  font-weight: 500;
+  font-variant: small-caps;
+  padding-left: 0.2em;
+}
+
+.content select option {
+  background-color: hsla(12, 58%, 41%, 0.8);
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

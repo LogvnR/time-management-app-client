@@ -44,6 +44,8 @@ const App = () => {
 
   // User Form States
   const [group, setGroup] = useState('');
+  const [month, setMonth] = useState('');
+  const [placements, setPlacements] = useState(0);
 
   onAuthStateChanged(auth, (currentUser) => {
     setCurrUser(currentUser);
@@ -51,14 +53,16 @@ const App = () => {
 
   const navigate = useNavigate();
 
+  // REMOVE ===
   const checkUser = () => {
     console.log(currUser);
   };
 
+  // REMOVE ===
   const testUser = () => {
     console.log(group);
-    console.log(lastName);
-    console.log(signUpEmail);
+    console.log(month);
+    console.log(placements);
     console.log(congregation);
   };
 
@@ -78,6 +82,7 @@ const App = () => {
       });
       navigate('/dashboard');
     } catch (error) {
+      // REMOVE ===
       console.log(error.message);
     }
   };
@@ -92,6 +97,7 @@ const App = () => {
       console.log(user);
       navigate('/dashboard');
     } catch (error) {
+      // REMOVE ===
       console.log(error.message);
     }
   };
@@ -104,6 +110,7 @@ const App = () => {
   useEffect(() => {
     const getUserData = () => {
       const specUser = users.find(({ email }) => email === currUser.email);
+      // REMOVE ===
       console.log(currUser.email);
       console.log(users);
       console.log(specUser);
@@ -150,8 +157,11 @@ const App = () => {
         path="/group"
         element={<Group group={group} setGroup={setGroup} />}
       />
-      <Route path="/month" element={<UserMonth />} />
-      <Route path="/placements" element={<Placements />} />
+      <Route path="/month" element={<UserMonth setMonth={setMonth} />} />
+      <Route
+        path="/placements"
+        element={<Placements setPlacements={setPlacements} />}
+      />
       <Route path="/videos" element={<Videos />} />
       <Route path="/hours" element={<Hours />} />
       <Route path="/returns" element={<Returns />} />

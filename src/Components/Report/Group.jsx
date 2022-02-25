@@ -8,6 +8,7 @@ import classes from '../../Styles/Report Styles/Group.module.css';
 const Group = (props) => {
   const [isGroupOne, setIsGroupOne] = useState(false);
   const [isGroupTwo, setIsGroupTwo] = useState(false);
+  const [isValid, setIsValid] = useState(false);
 
   const groupOne = () => {
     setIsGroupOne(true);
@@ -20,18 +21,32 @@ const Group = (props) => {
     props.setGroup('2');
   };
 
+  const reset = () => {
+    setIsGroupOne(false);
+    setIsGroupTwo(false);
+    props.setGroup('0');
+  };
+
   useEffect(() => {
     if (props.group === '1') {
       setIsGroupOne(true);
-    } else {
+      setIsValid(true);
+    } else if (props.group === '2') {
       setIsGroupTwo(true);
+      setIsValid(true);
+    } else {
+      setIsGroupOne(false);
+      setIsGroupTwo(false);
+      setIsValid(false);
     }
-  }, []);
+  }, [props.group]);
 
   return (
     <FormPage title="okay, let's set started!">
       <div className={classes.container}>
-        <p className={classes.question}>what field service group are you in?</p>
+        <p onClick={reset} className={classes.question}>
+          what field service group are you in?
+        </p>
         <div className={classes.groups}>
           <div
             className={
@@ -58,7 +73,7 @@ const Group = (props) => {
         </div>
         <div className={classes['btn-container']}>
           <BackButton link="dashboard" action="back" />
-          <NextButton link="month" action="next" />
+          <NextButton isValid={isValid} link="month" action="next" />
         </div>
       </div>
     </FormPage>

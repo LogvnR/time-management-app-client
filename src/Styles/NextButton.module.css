@@ -12,3 +12,8 @@
   font-size: var(--fontSm);
   margin-left: 0.4em;
 }
+
+.disabled {
+  background-color: var(--disabled);
+  transition: background-color 0.25s ease-in-out;
+}
