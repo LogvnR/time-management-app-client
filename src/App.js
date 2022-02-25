@@ -46,6 +46,10 @@ const App = () => {
   const [group, setGroup] = useState('');
   const [month, setMonth] = useState('');
   const [placements, setPlacements] = useState(0);
+  const [videos, setVideos] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [returns, setReturns] = useState(0);
+  const [studies, setStudies] = useState(0);
 
   onAuthStateChanged(auth, (currentUser) => {
     setCurrUser(currentUser);
@@ -63,7 +67,22 @@ const App = () => {
     console.log(group);
     console.log(month);
     console.log(placements);
-    console.log(congregation);
+    console.log(videos);
+    console.log(hours);
+    console.log(returns);
+    console.log(studies);
+  };
+
+  const userServiceReport = {
+    firstName: userData?.firstName,
+    lastName: userData?.lastName,
+    group: group,
+    month: month,
+    placements: placements,
+    videos: videos,
+    hours: hours,
+    returns: returns,
+    studies: studies,
   };
 
   const signUp = async () => {
@@ -152,7 +171,10 @@ const App = () => {
           />
         }
       />
-      <Route path="/serviceReport" element={<ServiceReport />} />
+      <Route
+        path="/serviceReport"
+        element={<ServiceReport userServiceReport={userServiceReport} />}
+      />
       <Route
         path="/group"
         element={<Group group={group} setGroup={setGroup} />}
@@ -162,10 +184,10 @@ const App = () => {
         path="/placements"
         element={<Placements setPlacements={setPlacements} />}
       />
-      <Route path="/videos" element={<Videos />} />
-      <Route path="/hours" element={<Hours />} />
-      <Route path="/returns" element={<Returns />} />
-      <Route path="/studies" element={<Studies />} />
+      <Route path="/videos" element={<Videos setVideos={setVideos} />} />
+      <Route path="/hours" element={<Hours setHours={setHours} />} />
+      <Route path="/returns" element={<Returns setReturns={setReturns} />} />
+      <Route path="/studies" element={<Studies setStudies={setStudies} />} />
     </Routes>
   );
 };

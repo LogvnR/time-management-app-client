@@ -18,7 +18,8 @@
 
 .title {
   color: var(--subAccent);
-  font-size: var(--fontMd);
+  font-size: var(--fontLg);
   font-variant: small-caps;
   margin: 0.5em 0;
+  text-align: center;
 }

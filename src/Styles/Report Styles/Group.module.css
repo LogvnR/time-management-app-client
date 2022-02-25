@@ -3,7 +3,8 @@
 }
 
 .question {
-  font-size: var(--fontSm);
+  font-size: var(--fontMd);
+  letter-spacing: 0.5px;
   font-variant: small-caps;
   margin: 0.7em 0 1.5em;
   text-align: center;
@@ -30,12 +31,16 @@
 
 .group {
   font-size: var(--fontMd);
+  font-variant: small-caps;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   margin: 0.25em 0;
 }
 
 .overseer {
   margin: 0.3em 0;
   font-variant: small-caps;
+  font-weight: 300;
 }
 
 .btn-container {

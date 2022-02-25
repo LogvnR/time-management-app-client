@@ -5,7 +5,8 @@
 
 .question {
   max-width: 270px;
-  font-size: var(--fontSm);
+  font-size: var(--fontMd);
+  letter-spacing: 0.5px;
   font-variant: small-caps;
   margin: 0.7em 0 1.8em;
   text-align: center;

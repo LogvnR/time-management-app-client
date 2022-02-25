@@ -42,7 +42,7 @@ const Dashboard = (props) => {
           }}
           className={classes['submit-report']}
         >
-          Submit Service Report +
+          Start Service Report +
         </button>
       </div>
     </div>
