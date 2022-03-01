@@ -1,27 +1,14 @@
-import { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import FormPage from './UI/FormPage';
-import NextButton from './UI/NextButton';
 import BackButton from './UI/BackButton';
 import classes from '../Styles/ServiceReport.module.css';
 import ReportReviewCard from './UI/ReportReviewCard';
 
 const Studies = (props) => {
-  const [userSelection, setUserSelection] = useState('');
-  const [isValid, setIsValid] = useState(true);
-
   const report = { ...props.userServiceReport };
 
-  // useEffect(() => {
-  //   if (userSelection < 0 || userSelection === '') {
-  //     setIsValid(false);
-  //   } else {
-  //     setIsValid(true);
-  //     props.setStudies(userSelection);
-  //     // REMOVE ===
-  //     console.log(userSelection);
-  //   }
-  // }, [userSelection, props]);
   return (
     <FormPage title="does everything look correct?">
       <div className={classes.container}>
@@ -48,7 +35,10 @@ const Studies = (props) => {
         </div>
         <div className={classes['btn-container']}>
           <BackButton link="studies" action="back" />
-          <NextButton isValid={isValid} link="dashboard" action="submit" />
+          <button className={classes.btn} onClick={props.postServiceReport}>
+            submit
+            <FontAwesomeIcon className={classes.arrow} icon={faArrowRight} />
+          </button>
         </div>
       </div>
     </FormPage>

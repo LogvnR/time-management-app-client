@@ -14,6 +14,43 @@ const UserMonth = (props) => {
       setIsValid(false);
     } else {
       setIsValid(true);
+      switch (userSelection) {
+        case 'january':
+          props.setMonthIndex('0');
+          break;
+        case 'february':
+          props.setMonthIndex('1');
+          break;
+        case 'march':
+          props.setMonthIndex('2');
+          break;
+        case 'april':
+          props.setMonthIndex('3');
+          break;
+        case 'may':
+          props.setMonthIndex('4');
+          break;
+        case 'june':
+          props.setMonthIndex('5');
+          break;
+        case 'july':
+          props.setMonthIndex('6');
+          break;
+        case 'august':
+          props.setMonthIndex('7');
+          break;
+        case 'september':
+          props.setMonthIndex('8');
+          break;
+        case 'october':
+          props.setMonthIndex('9');
+          break;
+        case 'november':
+          props.setMonthIndex('10');
+          break;
+        default:
+          props.setMonthIndex('11');
+      }
       props.setMonth(userSelection);
       // REMOVE ===
       console.log(userSelection);

@@ -62,3 +62,18 @@
   display: flex;
   justify-content: space-between;
 }
+
+.btn {
+  color: var(--text);
+  font-size: var(--fontMd);
+  font-variant: small-caps;
+  border: none;
+  background-color: var(--subAccent);
+  border-radius: 1rem;
+  padding: 0.5em 1em;
+}
+
+.arrow {
+  font-size: var(--fontSm);
+  margin-left: 0.4em;
+}

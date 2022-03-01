@@ -25,6 +25,7 @@ const Dashboard = (props) => {
         <div className={classes.content}>
           <div className={classes['test-bracket']}>
             <button onClick={props.logoutHandler}>logout</button>
+            <button onClick={props.testUser}>TEST</button>
             <button onClick={props.checkUser}>Check User</button>
           </div>
           {!isLoading && (

@@ -47,7 +47,7 @@ const SignUp = (props) => {
         }}
       />
       <button onClick={props.signUpUser}>CREATE</button>
-      <button onClick={props.testUser}>TEST</button>
+
       <p onClick={props.entryViewHandler}>Login</p>
     </div>
   );

@@ -41,10 +41,12 @@ const App = () => {
   const [currUser, setCurrUser] = useState('');
   const { users, isLoading, isError } = useUsers();
   const [userData, setUserData] = useState({});
+  const [userId, setUserId] = useState('');
 
   // User Form States
   const [group, setGroup] = useState('');
   const [month, setMonth] = useState('');
+  const [monthIndex, setMonthIndex] = useState('');
   const [placements, setPlacements] = useState(0);
   const [videos, setVideos] = useState(0);
   const [hours, setHours] = useState(0);
@@ -60,12 +62,15 @@ const App = () => {
   // REMOVE ===
   const checkUser = () => {
     console.log(currUser);
+    console.log(userData);
+    console.log(userId);
   };
 
   // REMOVE ===
   const testUser = () => {
     console.log(group);
     console.log(month);
+    console.log(monthIndex);
     console.log(placements);
     console.log(videos);
     console.log(hours);
@@ -83,6 +88,29 @@ const App = () => {
     hours: hours,
     returns: returns,
     studies: studies,
+  };
+
+  const reportValues = {
+    month: month,
+    placements: placements,
+    videoShowings: videos,
+    hours: hours,
+    returnVisits: returns,
+    bibleStudies: studies,
+    isDisabled: false,
+  };
+
+  const postServiceReport = async () => {
+    try {
+      await mainApi.post(`edit/${userId}/time/${monthIndex}`, reportValues);
+      navigate('/dashboard');
+      setTimeout(() => {
+        checkUser();
+      }, 5000);
+    } catch (error) {
+      // REMOVE ===
+      console.log(error.message);
+    }
   };
 
   const signUp = async () => {
@@ -134,11 +162,12 @@ const App = () => {
       console.log(users);
       console.log(specUser);
       setUserData(specUser);
+      setUserId(specUser._id);
     };
     setTimeout(() => {
       getUserData();
     }, 100);
-  }, [currUser, users]);
+  }, [currUser, users, userData]);
 
   return (
     <Routes>
@@ -146,7 +175,6 @@ const App = () => {
         path=""
         element={
           <Entry
-            testUser={testUser}
             setFirstName={setFirstName}
             setLastName={setLastName}
             setCongregation={setCongregation}
@@ -163,6 +191,7 @@ const App = () => {
         path="/dashboard"
         element={
           <Dashboard
+            testUser={testUser}
             currUser={currUser}
             userData={userData}
             checkUser={checkUser}
@@ -173,13 +202,24 @@ const App = () => {
       />
       <Route
         path="/serviceReport"
-        element={<ServiceReport userServiceReport={userServiceReport} />}
+        element={
+          <ServiceReport
+            checkUser={checkUser}
+            postServiceReport={postServiceReport}
+            userServiceReport={userServiceReport}
+          />
+        }
       />
       <Route
         path="/group"
         element={<Group group={group} setGroup={setGroup} />}
       />
-      <Route path="/month" element={<UserMonth setMonth={setMonth} />} />
+      <Route
+        path="/month"
+        element={
+          <UserMonth setMonthIndex={setMonthIndex} setMonth={setMonth} />
+        }
+      />
       <Route
         path="/placements"
         element={<Placements setPlacements={setPlacements} />}

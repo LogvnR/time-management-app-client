@@ -23,7 +23,6 @@ const Entry = (props) => {
       )}
       {!entry && (
         <SignUp
-          testUser={props.testUser}
           setFirstName={props.setFirstName}
           setLastName={props.setLastName}
           setCongregation={props.setCongregation}
