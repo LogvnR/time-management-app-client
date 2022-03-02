@@ -1,0 +1,83 @@
+.modalContainer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal {
+  width: clamp(240px, 75%, 300px);
+  max-height: 270px;
+  box-sizing: border-box;
+  background-color: var(--subAccent);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  overflow: scroll;
+  z-index: 12;
+}
+
+.title-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-container p {
+  margin: 0 0 0.3em;
+  font-size: var(--fontMd);
+  font-variant: small-caps;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.content-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Footer {
+  width: 100%;
+  margin-top: 1.2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.date-container p {
+  margin: 0;
+  font-style: italic;
+  font-size: clamp(8px, 2.8vw, 14px);
+  font-weight: 300;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+}
+
+.Footer button {
+  padding: 0.3em 0.8em;
+  border: 1.5px solid var(--text);
+  background-color: var(--main);
+  border-radius: 1rem;
+  color: white;
+  font-size: var(--fontSm);
+  font-variant: small-caps;
+  font-family: var(--fontOne);
+  letter-spacing: 1px;
+}

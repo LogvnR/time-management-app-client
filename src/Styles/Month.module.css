@@ -7,10 +7,16 @@
   align-items: center;
   border: 2px solid var(--subAccent);
   border-radius: 0.1rem;
+  color: var(--text);
 }
 
 .month {
-  color: var(--text);
   font-size: var(--fontMd);
   margin: 0.2em 0;
+  text-transform: capitalize;
+}
+
+.disabled {
+  border: 2px solid #595959;
+  color: #bfbfbf;
 }

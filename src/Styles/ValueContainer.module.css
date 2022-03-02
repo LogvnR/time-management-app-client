@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1.5px solid var(--text);
+  font-size: var(--fontSm);
+  padding: 0 0.5em;
+}
+
+.container p {
+  margin: 0.5em 0 0.2em;
+  font-size: inherit;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+}

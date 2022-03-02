@@ -11,7 +11,7 @@ const UserTime = (props) => {
       <p className={classes.year}>2022 Service Year</p>
       <div className={classes.months}>
         {userMonths.map((month) => (
-          <Month key={month._id} month={month.month} />
+          <Month key={month._id} month={month} />
         ))}
       </div>
     </div>

@@ -9,6 +9,18 @@ import ReportReviewCard from './UI/ReportReviewCard';
 const Studies = (props) => {
   const report = { ...props.userServiceReport };
 
+  const submitReportHandler = () => {
+    const date = new Date();
+    const year = date.getFullYear();
+    const day = date.getDate();
+    const currMonth = date.getMonth() + 1;
+    const daySubmitted = `${currMonth}-${day}-${year}`;
+    props.setDateSubmitted(daySubmitted);
+    setTimeout(() => {
+      props.postServiceReport();
+    }, 1000);
+  };
+
   return (
     <FormPage title="does everything look correct?">
       <div className={classes.container}>
@@ -35,7 +47,7 @@ const Studies = (props) => {
         </div>
         <div className={classes['btn-container']}>
           <BackButton link="studies" action="back" />
-          <button className={classes.btn} onClick={props.postServiceReport}>
+          <button className={classes.btn} onClick={submitReportHandler}>
             submit
             <FontAwesomeIcon className={classes.arrow} icon={faArrowRight} />
           </button>

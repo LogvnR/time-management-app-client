@@ -52,6 +52,7 @@ const App = () => {
   const [hours, setHours] = useState(0);
   const [returns, setReturns] = useState(0);
   const [studies, setStudies] = useState(0);
+  const [dateSubmitted, setDateSubmitted] = useState('');
 
   onAuthStateChanged(auth, (currentUser) => {
     setCurrUser(currentUser);
@@ -98,6 +99,7 @@ const App = () => {
     returnVisits: returns,
     bibleStudies: studies,
     isDisabled: false,
+    dateSubmitted: dateSubmitted,
   };
 
   const postServiceReport = async () => {
@@ -167,7 +169,7 @@ const App = () => {
     setTimeout(() => {
       getUserData();
     }, 100);
-  }, [currUser, users, userData]);
+  }, [currUser, users]);
 
   return (
     <Routes>
@@ -205,6 +207,7 @@ const App = () => {
         element={
           <ServiceReport
             checkUser={checkUser}
+            setDateSubmitted={setDateSubmitted}
             postServiceReport={postServiceReport}
             userServiceReport={userServiceReport}
           />
