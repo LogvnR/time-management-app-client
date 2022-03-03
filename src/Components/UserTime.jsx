@@ -8,7 +8,7 @@ const UserTime = (props) => {
 
   return (
     <div className={classes.container}>
-      <p className={classes.year}>2022 Service Year</p>
+      <p className={classes.year}>{props.serviceYear} Service Year</p>
       <div className={classes.months}>
         {userMonths.map((month) => (
           <Month key={month._id} month={month} />

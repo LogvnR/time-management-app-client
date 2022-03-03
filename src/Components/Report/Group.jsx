@@ -57,7 +57,7 @@ const Group = (props) => {
             onClick={groupOne}
           >
             <p className={classes.group}>Group 1</p>
-            <p className={classes.overseer}>j. ricard</p>
+            <p className={classes.overseer}>z. feeney</p>
           </div>
           <div
             className={

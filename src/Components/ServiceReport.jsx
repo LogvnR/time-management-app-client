@@ -1,3 +1,5 @@
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -6,8 +8,47 @@ import BackButton from './UI/BackButton';
 import classes from '../Styles/ServiceReport.module.css';
 import ReportReviewCard from './UI/ReportReviewCard';
 
-const Studies = (props) => {
+const ServiceReport = (props) => {
+  const form = useRef();
   const report = { ...props.userServiceReport };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    if (report.group === '1') {
+      emailjs
+        .sendForm(
+          'service_6myluni',
+          'group_one',
+          form.current,
+          'O4dS7XZ-BFsM94OQx'
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+    } else {
+      emailjs
+        .sendForm(
+          'service_6myluni',
+          'group_two',
+          form.current,
+          'O4dS7XZ-BFsM94OQx'
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+            // submitReportHandler();
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+    }
+  };
 
   const submitReportHandler = () => {
     const date = new Date();
@@ -27,9 +68,10 @@ const Studies = (props) => {
         <div className={classes.content}>
           <p className={classes.title}>
             name:{' '}
-            <span className={classes.value}>
-              {report.firstName} {report.lastName}
-            </span>
+            <span name="" className={classes.value}>
+              {report.firstName}
+            </span>{' '}
+            <span className={classes.value}>{report.lastName}</span>
           </p>
           <p className={classes.title}>
             group: <span className={classes.value}>{report.group}</span>
@@ -44,10 +86,48 @@ const Studies = (props) => {
           <ReportReviewCard type="hours" value={report.hours} />
           <ReportReviewCard type="return visits" value={report.returns} />
           <ReportReviewCard type="bible studies" value={report.studies} />
+          <form className={classes.form} ref={form}>
+            <input
+              type="text"
+              value={report.firstName}
+              name="first_name"
+              readOnly
+            />
+            <input
+              type="text"
+              value={report.lastName}
+              name="last_name"
+              readOnly
+            />
+            <input
+              type="text"
+              value={
+                report.month.charAt(0).toUpperCase() + report.month.slice(1)
+              }
+              name="month"
+              readOnly
+            />
+            <input
+              type="text"
+              value={report.serviceYear}
+              name="service_year"
+              readOnly
+            />
+            <input
+              type="text"
+              value={report.placements}
+              name="placements"
+              readOnly
+            />
+            <input type="text" value={report.videos} name="videos" readOnly />
+            <input type="text" value={report.hours} name="hours" readOnly />
+            <input type="text" value={report.returns} name="returns" readOnly />
+            <input type="text" value={report.studies} name="studies" readOnly />
+          </form>
         </div>
         <div className={classes['btn-container']}>
           <BackButton link="studies" action="back" />
-          <button className={classes.btn} onClick={submitReportHandler}>
+          <button className={classes.btn} onClick={sendEmail}>
             submit
             <FontAwesomeIcon className={classes.arrow} icon={faArrowRight} />
           </button>
@@ -57,4 +137,4 @@ const Studies = (props) => {
   );
 };
 
-export default Studies;
+export default ServiceReport;

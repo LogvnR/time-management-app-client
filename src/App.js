@@ -47,6 +47,7 @@ const App = () => {
   const [group, setGroup] = useState('');
   const [month, setMonth] = useState('');
   const [monthIndex, setMonthIndex] = useState('');
+  const [serviceYear, setServiceYear] = useState(0);
   const [placements, setPlacements] = useState(0);
   const [videos, setVideos] = useState(0);
   const [hours, setHours] = useState(0);
@@ -82,6 +83,7 @@ const App = () => {
   const userServiceReport = {
     firstName: userData?.firstName,
     lastName: userData?.lastName,
+    serviceYear: serviceYear,
     group: group,
     month: month,
     placements: placements,
@@ -194,6 +196,8 @@ const App = () => {
         element={
           <Dashboard
             testUser={testUser}
+            serviceYear={serviceYear}
+            setServiceYear={setServiceYear}
             currUser={currUser}
             userData={userData}
             checkUser={checkUser}

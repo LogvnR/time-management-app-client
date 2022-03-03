@@ -57,6 +57,10 @@
   color: var(--disabled);
 }
 
+.form {
+  display: none;
+}
+
 .btn-container {
   width: 100%;
   display: flex;
