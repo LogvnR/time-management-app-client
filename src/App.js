@@ -109,8 +109,10 @@ const App = () => {
       await mainApi.post(`edit/${userId}/time/${monthIndex}`, reportValues);
       navigate('/dashboard');
       setTimeout(() => {
-        checkUser();
-      }, 5000);
+        refresh();
+        refresh();
+        refresh();
+      }, 7000);
     } catch (error) {
       // REMOVE ===
       console.log(error.message);
@@ -158,6 +160,14 @@ const App = () => {
     navigate('');
   };
 
+  const refresh = () => {
+    const refreshedUser = users.find(({ email }) => email === currUser.email);
+    // REMOVE ===
+    console.log('REFRESHED');
+    setUserData(refreshedUser);
+    setUserId(refreshedUser._id);
+  };
+
   useEffect(() => {
     const getUserData = () => {
       const specUser = users.find(({ email }) => email === currUser.email);
@@ -196,6 +206,7 @@ const App = () => {
         element={
           <Dashboard
             testUser={testUser}
+            refresh={refresh}
             serviceYear={serviceYear}
             setServiceYear={setServiceYear}
             currUser={currUser}

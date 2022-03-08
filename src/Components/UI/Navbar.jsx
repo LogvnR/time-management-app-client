@@ -5,7 +5,7 @@ import classes from '../../Styles/Navbar.module.css';
 const Navbar = (props) => {
   return (
     <div className={classes.navbar}>
-      <p>Tempus</p>
+      <p className={classes.title}>Tempus</p>
       <p>{props.congregation}</p>
     </div>
   );

@@ -4,7 +4,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--mainBg);
+  background: rgb(164, 68, 43);
+  background: linear-gradient(
+    145deg,
+    rgba(164, 68, 43, 1) 0%,
+    rgba(93, 27, 22, 1) 31%,
+    rgba(53, 11, 8, 1) 72%
+  );
+  background-image: url('../Assests/Sprinkle2.svg');
 }
 
 .dashboard {
@@ -26,10 +33,24 @@
   font-size: 10px;
 }
 
+.title-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .welcome {
   font-size: var(--fontMd);
   color: var(--text);
   margin: 1.3em 1.1em;
+}
+
+.settings {
+  font-size: var(--fontMd);
+  color: #595959;
+  margin: 1.3em 1.1em;
+  transition: transform 0.25s ease-in-out;
 }
 
 .content {
@@ -42,7 +63,18 @@
   margin: 1.5em 0;
   padding: 0.7em 0;
   border: none;
+  border-radius: 2rem;
   font-size: var(--fontMd);
   background-color: var(--accent);
   color: var(--text);
+}
+
+.icon {
+  margin-left: 0.5em;
+  font-size: var(--fontMd);
+}
+
+.active {
+  transform: rotate(30deg);
+  transition: transform 0.25s ease-in-out;
 }

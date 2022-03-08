@@ -8,6 +8,13 @@
   font-size: var(--fontSm);
 }
 
+.title {
+  font-family: var(--titleFont);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+
 .navbar p {
   font-size: inherit;
   margin: 0;

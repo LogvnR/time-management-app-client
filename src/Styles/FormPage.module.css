@@ -5,7 +5,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--mainBg);
+  background: rgb(164, 68, 43);
+  background: linear-gradient(
+    145deg,
+    rgba(164, 68, 43, 1) 0%,
+    rgba(93, 27, 22, 1) 31%,
+    rgba(53, 11, 8, 1) 72%
+  );
 }
 
 .content {

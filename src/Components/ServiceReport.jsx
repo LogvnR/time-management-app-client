@@ -12,8 +12,19 @@ const ServiceReport = (props) => {
   const form = useRef();
   const report = { ...props.userServiceReport };
 
+  const setDate = () => {
+    const date = new Date();
+    const year = date.getFullYear();
+    const day = date.getDate();
+    const currMonth = date.getMonth() + 1;
+    const daySubmitted = `${currMonth}-${day}-${year}`;
+    props.setDateSubmitted(daySubmitted);
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
+    setDate();
+
     if (report.group === '1') {
       emailjs
         .sendForm(
@@ -25,6 +36,7 @@ const ServiceReport = (props) => {
         .then(
           (result) => {
             console.log(result.text);
+            submitReportHandler();
           },
           (error) => {
             console.log(error.text);
@@ -41,7 +53,7 @@ const ServiceReport = (props) => {
         .then(
           (result) => {
             console.log(result.text);
-            // submitReportHandler();
+            submitReportHandler();
           },
           (error) => {
             console.log(error.text);
@@ -51,12 +63,6 @@ const ServiceReport = (props) => {
   };
 
   const submitReportHandler = () => {
-    const date = new Date();
-    const year = date.getFullYear();
-    const day = date.getDate();
-    const currMonth = date.getMonth() + 1;
-    const daySubmitted = `${currMonth}-${day}-${year}`;
-    props.setDateSubmitted(daySubmitted);
     setTimeout(() => {
       props.postServiceReport();
     }, 1000);
