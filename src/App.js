@@ -56,7 +56,9 @@ const App = () => {
   const [dateSubmitted, setDateSubmitted] = useState('');
 
   onAuthStateChanged(auth, (currentUser) => {
-    setCurrUser(currentUser);
+    sessionStorage.setItem('signedInUser', currentUser.email);
+    let signedInUser = sessionStorage.getItem('signedInUser');
+    setCurrUser(signedInUser);
   });
 
   const navigate = useNavigate();
@@ -132,6 +134,128 @@ const App = () => {
         lastName: lastName,
         email: signUpEmail,
         congregation: congregation,
+        time: [
+          {
+            month: 'january',
+            placements: 0,
+            videoShowings: 0,
+            hours: 0,
+            returnVisits: 0,
+            bibleStudies: 0,
+            isDisabled: true,
+            dateSubmitted: '0-0-0000',
+          },
+          {
+            month: 'february',
+            placements: 0,
+            videoShowings: 0,
+            hours: 0,
+            returnVisits: 0,
+            bibleStudies: 0,
+            isDisabled: true,
+            dateSubmitted: '0-0-0000',
+          },
+          {
+            month: 'march',
+            placements: 0,
+            videoShowings: 0,
+            hours: 0,
+            returnVisits: 0,
+            bibleStudies: 0,
+            isDisabled: true,
+            dateSubmitted: '0-0-0000',
+          },
+          {
+            month: 'april',
+            placements: 0,
+            videoShowings: 0,
+            hours: 0,
+            returnVisits: 0,
+            bibleStudies: 0,
+            isDisabled: true,
+            dateSubmitted: '0-0-0000',
+          },
+          {
+            month: 'may',
+            placements: 0,
+            videoShowings: 0,
+            hours: 0,
+            returnVisits: 0,
+            bibleStudies: 0,
+            isDisabled: true,
+            dateSubmitted: '0-0-0000',
+          },
+          {
+            month: 'june',
+            placements: 0,
+            videoShowings: 0,
+            hours: 0,
+            returnVisits: 0,
+            bibleStudies: 0,
+            isDisabled: true,
+            dateSubmitted: '0-0-0000',
+          },
+          {
+            month: 'july',
+            placements: 0,
+            videoShowings: 0,
+            hours: 0,
+            returnVisits: 0,
+            bibleStudies: 0,
+            isDisabled: true,
+            dateSubmitted: '0-0-0000',
+          },
+          {
+            month: 'august',
+            placements: 0,
+            videoShowings: 0,
+            hours: 0,
+            returnVisits: 0,
+            bibleStudies: 0,
+            isDisabled: true,
+            dateSubmitted: '0-0-0000',
+          },
+          {
+            month: 'september',
+            placements: 0,
+            videoShowings: 0,
+            hours: 0,
+            returnVisits: 0,
+            bibleStudies: 0,
+            isDisabled: true,
+            dateSubmitted: '0-0-0000',
+          },
+          {
+            month: 'october',
+            placements: 0,
+            videoShowings: 0,
+            hours: 0,
+            returnVisits: 0,
+            bibleStudies: 0,
+            isDisabled: true,
+            dateSubmitted: '0-0-0000',
+          },
+          {
+            month: 'november',
+            placements: 0,
+            videoShowings: 0,
+            hours: 0,
+            returnVisits: 0,
+            bibleStudies: 0,
+            isDisabled: true,
+            dateSubmitted: '0-0-0000',
+          },
+          {
+            month: 'december',
+            placements: 0,
+            videoShowings: 0,
+            hours: 0,
+            returnVisits: 0,
+            bibleStudies: 0,
+            isDisabled: true,
+            dateSubmitted: '0-0-0000',
+          },
+        ],
       });
       navigate('/dashboard');
     } catch (error) {
@@ -157,11 +281,12 @@ const App = () => {
 
   const logout = async () => {
     await signOut(auth);
+    sessionStorage.removeItem('signedInUser');
     navigate('');
   };
 
   const refresh = () => {
-    const refreshedUser = users.find(({ email }) => email === currUser.email);
+    const refreshedUser = users.find(({ email }) => email === currUser);
     // REMOVE ===
     console.log('REFRESHED');
     setUserData(refreshedUser);
@@ -170,9 +295,9 @@ const App = () => {
 
   useEffect(() => {
     const getUserData = () => {
-      const specUser = users.find(({ email }) => email === currUser.email);
+      const specUser = users.find(({ email }) => email === currUser);
       // REMOVE ===
-      console.log(currUser.email);
+      console.log(currUser);
       console.log(users);
       console.log(specUser);
       setUserData(specUser);

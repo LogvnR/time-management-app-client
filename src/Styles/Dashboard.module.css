@@ -78,3 +78,9 @@
   transform: rotate(30deg);
   transition: transform 0.25s ease-in-out;
 }
+
+@media only screen and (orientation: landscape) {
+  .background {
+    background-image: url('../Assests/SprinkleLg.svg');
+  }
+}
